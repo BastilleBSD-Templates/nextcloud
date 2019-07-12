@@ -1,5 +1,7 @@
 Bastille Template to create a Nextcloud Jail
 
+ STATUS: Testing
+
 To configure Let's Encrypt you need to issue the following command for the right domain and the 
 webroot:
 
