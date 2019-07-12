@@ -1,0 +1,22 @@
+pw groupadd certs
+pw groupmod certs -m acme
+
+sed -i 's/port 1/port 0/g' /usr/local/etc/redis.conf
+
+unixsocket /tmp/redis.sock
+unixsocketperm 777
+
+ln -s /usr/local/www/apache24/data/nextcloud/robots.txt /usr/local/www
+
+chown -R www:www /usr/local/www/apache24/data/nextcloud /mnt/data
+
+find /usr/local/www/apache24/data/nextcloud/ -type d -exec chmod 750 {} \;
+find /usr/local/www/apache24/data/nextcloud/ -type f -exec chmod 640 {} \;
+
+pw groupadd msmtp
+chown :msmtp /usr/local/etc/msmtprc
+chown :msmtp /usr/local/bin/msmtp
+chmod 640 /usr/local/etc/msmtprc
+chmod g+s /usr/local/bin/msmtp
+pw groupmod msmtp -M root,www
+

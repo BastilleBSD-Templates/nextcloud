@@ -1,0 +1,5 @@
+apache24_enable=YES
+mysql_enable=YES
+redis_enable=YES
+
+

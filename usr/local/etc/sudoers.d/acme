@@ -1,0 +1,3 @@
+acme ALL=(ALL) NOPASSWD: /usr/sbin/service apache24 reload
+
+
